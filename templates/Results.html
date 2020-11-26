@@ -1,0 +1,40 @@
+{% extends "Base.html" %}
+
+{% block content %}
+<a href="{{ url_for('Index') }}" class="btn btn-danger btn-lg">Back To HomePage</a>
+        <br>
+        <br>
+<h1 class='text-success'>
+    Showing Some of the Scraped Images
+</h1>
+
+
+{% if Num!=0 %}
+<div >
+<!-- <table >
+    <tbody> -->
+        {% for result in results %}
+        <!-- <tr> -->
+            <!-- <td width="400"> -->
+            <img class="img-thumbnail" width="300" height="300" src="{{ url_for('static',filename=result) }}" alt="{{ result }}" style="width: 300;height: 300;">    
+            <!-- </td> -->
+            
+        <!-- </tr> -->
+        {% endfor %}
+    <!-- </tbody> -->
+    
+    <!-- <tfoot>
+        Found {{ Num }} Reviews for {{ searchStr}}
+    </tfoot> -->
+<!-- </table>
+</div> -->
+
+{% else %}
+<h3 class="text-danger">
+    No Results Sorry!
+</h3>
+
+{% endif %}
+
+{% endblock %}
+
