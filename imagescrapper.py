@@ -72,7 +72,8 @@ class ImageScrapper():
     
     
     def save_Image(self,ImageContent,count):
-        self.set_FilePath()
+        if count==1:
+            self.set_FilePath()
         try:
             with open(self.FilePath+str(count)+".jpg","wb") as f:
                 f.write(ImageContent)
