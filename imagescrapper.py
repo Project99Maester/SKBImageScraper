@@ -38,6 +38,7 @@ class ImageScrapper():
                 try:
                     if 'data-src' in img.attrs:
                         img_url.append(img['data-src'])
+                        print("$$$$$$$${}$$$$$$$".format(img['data-src']))
                 except Exception as e:
                     print("Error while Getting the Data Source "+str(e))
                     continue
@@ -49,6 +50,7 @@ class ImageScrapper():
         try:
             if os.path.exists(self.FilePath):
                 shutil.rmtree(self.FilePath)
+                print("##########DELETED PREVIOUS FILES#########")
             # self.set_FilePath()
         except Exception as e:
             print("Error while deleting the Previous Directory "+str(e))
@@ -74,7 +76,8 @@ class ImageScrapper():
         try:
             with open(self.FilePath+str(count)+".jpg","wb") as f:
                 f.write(ImageContent)
-                self.lis_img.append('downloads/{}.jpg'.format(count))
+                self.lis_img.append('{}.jpg'.format(count))
+                print("Saving Image in {}".format(self.FilePath))
         except Exception as e:
             print("Error while Saving Image Number {} ".format(count)+str(e))
     
