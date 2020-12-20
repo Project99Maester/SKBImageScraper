@@ -17,7 +17,7 @@
 <div class="card-columns">
     {% for result in results %}
     <div class="card">
-        <img class="card-img" src="/static/downloads/{{ result }}" alt="" width="300" height="300">
+        <img class="card-img" src="data:image/jpeg;base64,{{ result }}" alt="" width="300" height="300">
         <!-- <img class="card-img" src="{{ url_for('static',filename=result) }}" alt="{{ result }}" width="300" height="300"> -->
     </div>
     {% endfor %}

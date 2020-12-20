@@ -1,5 +1,5 @@
 from imagescrapper import ImageScrapper
-
+import base64 as b
 class SKBIS():
     def __init__(self,searchString):
         self.searchString=searchString
@@ -16,15 +16,16 @@ class SKBIS():
         IS.clear_Previous()
 
         IS.prepare_Folder()
-
+        ans=[]
         count=1
         for url in url_list:
             if count > NumImages:
                 break
             
             img=IS.download_Image(url)
-            IS.save_Image(img,count=count)    
+            ans.append(b.b64encode(img).decode('utf-8'))
+            # IS.save_Image(img,count=count)    
 
             count+=1
         
-        return IS.list_added_images()
+        return ans
